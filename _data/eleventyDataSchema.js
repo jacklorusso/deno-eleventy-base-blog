@@ -1,5 +1,5 @@
-import { z } from "zod";
-import { fromZodError } from 'zod-validation-error';
+import { z } from "npm:zod";
+import { fromZodError } from 'npm:zod-validation-error';
 
 // Draft content, validate `draft` front matter
 export default function() {
@@ -10,7 +10,7 @@ export default function() {
 			draft: z.boolean().or(z.undefined()),
 		}).safeParse(data);
 
-		if(result.error) {
+		if (result.error) {
 			throw fromZodError(result.error);
 		}
 	}
